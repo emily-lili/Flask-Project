@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div><h1>THIS IS OUR CHARACTER PAGE</h1></div>
+{% for character in characters%}
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <a href="{{url_for('site.individualCharacter', character_id = character.id)}}"></a><h5 class="card-title">{{ character.name }}</h5></div>a>
+        <p class="card-text">The {{character.movie}} is a {{character.genre}} film that was released in {{character.year}}.{{Character.name}} is a character in the movie.</p>
+        </div>
+    </div>
+</div>
+
+
+{% end for %}
+
+{% endblock content %}
+
+

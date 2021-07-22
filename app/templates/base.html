@@ -29,9 +29,6 @@
                 <a href="{{ url_for('site.home') }}">
                     <li>The Disney Project</li>
                 </a>
-                <a href="">
-                    <li>Donate</li>
-                </a>
             
                 <a href="{{ url_for('site.profile') }}">
                     <li>Profile</li>
@@ -43,20 +40,35 @@
                     <li>Sign Out</li>
                 </a>
 
-                
                 <a href="{{ url_for('auth.signin') }}">
                     <li>Sign In</li>
                 </a>
                 <a href="{{ url_for('auth.signup') }}">
                     <li>Sign Up Free</li>
                 </a>
-            
+                <a href="{{ url_for('site.displayCharacter') }}">
+                    <li>List of Characters</li>
+                </a>
 
             </ul>
         </div>
     </nav>
     <!--End of Nav-->
-
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <!-- b4-alert-closable -->
+        <div class="alert alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+</div>
 
     {% block content %}
     {% endblock content %}
